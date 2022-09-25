@@ -1,3 +1,17 @@
+data "external" "os" {
+  working_dir = path.module
+  program = ["printf", "{\"os\": \"Linux\"}"]
+}
+
+locals {
+  os = data.external.os.result.os
+  check = local.os == "Windows" ? "We are on Windows" : "We are on Linux"
+}
+
+output "this_os" {
+  value = data.external.os.result.os
+}
+
 /*
 resource "null_resource" "create_folder" {
 

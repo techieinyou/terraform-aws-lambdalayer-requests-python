@@ -1,3 +1,4 @@
+provider.tf
 tmp/
 # Local .terraform directories
 **/.terraform/*
